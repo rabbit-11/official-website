@@ -1,0 +1,16 @@
+<i-modal class="login-model" v-model="$showLoginModal" @on-visible-change="onVisibleChange" :transfer=false footer-hide
+    :mask-closable="false">
+    <p slot="header">登录</p>
+    <i-form :label-width="100" ref="user" :model="user" :rules="rules">
+        <i-form-item label="账号:" prop="username">
+            <i-input v-model="user.username"></i-input>
+        </i-form-item>
+        <i-form-item label="密码:" prop="password">
+            <i-input type="password" v-model="user.password" @on-enter="onLogin"></i-input>
+        </i-form-item>
+        <div class="handle-btn">
+            <i-button @click.stop="onCancel">取消</i-button>
+            <i-button @click.stop="onLogin">确定</i-button>
+        </div>
+    </i-form>
+</i-modal>

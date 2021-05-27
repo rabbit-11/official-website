@@ -1,0 +1,142 @@
+.activity {
+    position: relative;
+    @include size(100%, 6.5rem);
+    z-index: 1;
+
+    &-shadow {
+        position: absolute;
+        right: 0;
+        z-index: 2;
+        @include size(15rem, 100%);
+        background: linear-gradient(to left, rgba(6, 6, 6, 0.5), rgba(9, 9, 9, 0.5), rgba(221, 221, 221, 0.5), #fff);
+    }
+
+    &-background {
+        position: absolute;
+        right: 0;
+        @include size (12.5rem, 100%);
+
+        img {
+            @include size();
+            object-fit: cover;
+        }
+
+    }
+
+    &-show {
+        @include absolute(0, 0, 0, 0);
+        @include flex(row, space-around, center);
+        margin: auto;
+        z-index: 3;
+
+
+
+        &-current {
+            @include size(8rem, 4rem);
+            @include border(10px, solid, $color-white-g);
+            box-shadow: 0 0px 20px 5px rgba(0, 0, 0, 0.3);
+            transition: all 0.6s;
+            // -webkit-animation: fade-in 1.5s linear 1;
+            // animation: fade-in 1.5s linear 1;
+
+            img {
+                @include size();
+                object-fit: cover;
+                transition: all 0.6s;
+
+                &:hover {
+                    transform: scale(1.2);
+
+                }
+            }
+        }
+
+        &-next {
+            @include size(3.7rem, 1.9rem);
+            @include border(5px, solid, $color-white-g);
+            transition: all 0.6s;
+
+            img {
+                @include size();
+                object-fit: cover;
+                transition: all 0.6s;
+
+                &:hover {
+                    transform: scale(1.2);
+                }
+
+
+            }
+        }
+
+        &-doc {
+            @include flex(row, space-around, center);
+
+            .doc {
+                @include flex(row, center, center);
+
+                li {
+                    display: inline-block;
+                    @include size(0.1rem, 0.1rem);
+                    background-color: $color-white-g;
+                    border-radius: 50%;
+                    margin: 0 0.15rem;
+
+                    &:last-child {
+                        @include size(0.15rem, 0.15rem);
+
+                    }
+
+                }
+            }
+
+            .arrow {
+                @include flex(row, center, center);
+                @include size(0.9rem, 0.9rem);
+                background-color: #c1c0be;
+                color: $color-red-g;
+                opacity: 0.8;
+                font-size: 0.5rem;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .moveToLeft {
+        animation: toLeft 1s linear 1;
+    }
+
+    @keyframes toLeft {
+        100% {
+            @include size(8rem, 3.8rem);
+            transform: translateX(-5rem);
+        }
+    }
+    .moveToRight {
+        animation: toRight 1s linear  1;
+    }
+    @keyframes toRight {
+        100% {
+            @include size(3.7rem, 1.9rem);
+            transform: translateX(7rem);
+        }
+    }
+    .fade-in {
+        animation: fade-in 1s linear  1;
+    }
+    @keyframes fade-in {
+        0% {
+            opacity: 0.5;
+        }
+
+        40% {
+            opacity: 0.6;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+}

@@ -1,0 +1,99 @@
+.hardwork-section {
+  @include size;
+  .business-introduction {
+    width: 100%;
+    .introduction {
+      @include size(100%, auto);
+      @include flex(row, flex-start, center);
+      .word-image {
+        @include size(100%, 100%);
+        .image-pic {
+          @include size(100%, auto);
+          border-radius: 0.1rem;
+          cursor: pointer;
+        }
+      }
+    }
+    .info-title {
+      font-size: 0.3rem;
+      margin: 0.2rem auto;
+      text-align: center;
+    }
+    .function-list {
+      width: 100%;
+      @include flex(row, center, center);
+      flex-wrap: wrap;
+      margin: 0.5rem 0;
+      .function-item {
+        @include flex(column, center, center);
+        margin: 0 .5rem .2rem;
+        position: relative;
+        cursor: pointer;
+        .function-pic,
+        .pic {
+          @include size(1.1rem, 1.1rem);
+          border-radius: 50%;
+          overflow: hidden;
+          margin-bottom: 0.2rem;
+        }
+        .function-name {
+          font-size: 0.18rem;
+          text-align: center;
+          .function-value {
+            color: #d20000;
+            @include font(0.3rem, bold);
+          }
+        }
+        @media screen and(max-width:500px) {
+          .function-name,.function-name .function-value {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+    .scene {
+      margin-bottom: 1rem;
+      background-color: #FAFAFA;
+      padding-bottom: .9rem;
+      .discription {
+        font-size: 0.18rem;
+        width: 100%;
+        text-align: center;
+        margin: -0.2rem 0 0.4rem;
+        padding: 0 7%;
+      }
+      @media screen and(max-width:500px) {
+        .discription {
+          font-size: 13px;
+        }
+      }
+      .scene-list {
+        @include flex(row, center, center);
+        flex-wrap: wrap;
+        .scene-item {
+          @include size(38%, 4.5rem);
+          overflow: hidden;
+          position: relative;
+          margin: 0 2%;
+          .scene-pic{
+            @include size;
+            object-fit: cover;
+          }
+          .scene-name {
+            @include size;
+            @include absolute(0, 0, unset, unset);
+            @include font(0.3rem, bold);
+            @include flex(row,center,center);
+            background-color: rgba(0,0,0,.3);
+            color: rgba(255, 255, 255, 1);
+          }
+        }
+        .scene-item:hover{
+          .scene-name{
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+}

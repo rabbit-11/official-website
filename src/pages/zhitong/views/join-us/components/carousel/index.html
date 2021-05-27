@@ -1,0 +1,33 @@
+<div>
+    <div class="carousel">
+        <div class="carousel-banner">
+            <div class="carousel-banner-arrow">
+                <div class="arrow" @click="onArrowClick(1)">
+                    <i-icon type="ios-arrow-back" />
+                </div>
+                <div class="arrow" @click="onArrowClick(-1)">
+                    <i-icon type="ios-arrow-forward" />
+                </div>
+            </div>
+
+            <ul class="carousel-banner-carousel" ref="imgBox">
+                <li>
+                    <img :src="data[data.length - 2].src" alt="暂无图片">
+                </li>
+                <li>
+                    <img :src="data[data.length - 1].src" alt="暂无图片">
+                </li>
+                <li v-for="(item,index) in data" :key="index">
+                    <img :src="item.src" alt="暂无图片">
+                </li>
+                <li>
+                    <img :src="data[0].src" alt="暂无图片">
+                </li>
+                <li>
+                    <img :src="data[1].src" alt="暂无图片">
+                </li>
+            </ul>
+        </div>
+        <p class="carousel-title">{{data[index%4].desc}}</p>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+.vision {
+  position: relative;
+  @include size(100%, 6rem);
+  .vision-bg {
+    @include size;
+  }
+  .vision-content {
+    @include absolute(50%, 9%, unset, unset);
+    @include font(0.3rem, bold);
+    color: #fff;
+    transform: translateY(-50%);
+    .vision-detail {
+      margin: 0.4rem 0;
+      @include bg-img("~@/assets/images/zhitong/about/bg-line.png");
+      background-size: 100% auto;
+      background-position-y: bottom;
+      line-height: 270%;
+    }
+  }
+  @media screen and(max-width:500px) {
+    .vision-content {
+      font-size: 13px;
+    }
+  }
+}

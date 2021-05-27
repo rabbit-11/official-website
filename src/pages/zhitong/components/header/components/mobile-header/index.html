@@ -1,0 +1,11 @@
+<div>
+    <div class="mobile-header">
+        <div class="mobile-header-logo" @click="toHomePage"></div>
+        <div class="mobile-header-menu" @click="toMobileMenuList">
+            <i-icon v-if="mobileMenuFlag" type="md-close" />
+            <i-icon v-else type="md-menu" />
+        </div>
+    </div>
+    <u-mobile-menu :menuList="menuList" :subMenuList="subMenuList" v-if="mobileMenuFlag"
+        @on-visible-change="onVisibleChange"></u-mobile-menu>
+</div>

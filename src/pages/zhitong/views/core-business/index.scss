@@ -1,0 +1,20 @@
+.core-case {
+  @include size;
+  padding-top: .8rem;
+}
+
+// 标题hover设置背景
+.header {
+  box-shadow: 0 1px 10px rgba(0, 0, 0, .15);
+  background: $color-white-g;
+}
+
+// 标题hover，为heaer后代中的p设置颜色
+.headerp {
+  color: $color-black-g;
+}
+
+// 标题hover，替换logo
+.header .header-logo {
+  @include bg-img("~@/assets/images/zhitong/welcome/zhitong-opaque.png");
+}

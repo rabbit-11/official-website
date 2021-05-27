@@ -1,0 +1,37 @@
+.container {
+  .single-page-con {
+    position: absolute;
+    top: 0.8rem;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    background-color: #fff;
+    padding: 0 22%;
+    width: 100%;
+    transition: left 0.3s;
+    .single-page {
+      height: 100%;
+    }
+  }
+  .animate {
+    position: fixed;
+    z-index: 2;
+    width: 50rem;
+    height: 50rem;
+    left: -15rem;
+    background: rgb(245, 137, 139);
+    border-radius: 50%;
+    top: -50rem;
+    animation: topDown 5s;
+    @keyframes topDown {
+      0% {
+        top: -50rem;
+        background: rgb(245, 137, 139);
+      }
+      100% {
+        background: #fff;
+        top: 50rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+<div class="development">
+   <div class="time">{{currentInfo.time}}</div>
+   <div class="description">{{currentInfo.text}}</div>
+   <div class="time-line">
+      <div class="time-dot" v-for="(item,index) in data">
+         <div @mouseenter="currentIndex=index" @click="currentIndex=index" :class="['icon',{'active-time':currentIndex===index}]"></div>
+         <div class="time-word">{{item.time}}</div>
+      </div>
+   </div>
+</div>

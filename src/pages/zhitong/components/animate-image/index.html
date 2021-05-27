@@ -1,0 +1,5 @@
+<div :class="['anim_box', {'image-animation':flag}]" @mouseenter="imageAnimate(true)"  @mouseleave="imageAnimate(false)">
+    <img class="anim_image anim_image_top" :src="imageurl" />
+    <img class="anim_image anim_image_bottom" :src="imageurl" />
+    <div v-if="!flag" class="mask"></div>
+</div>

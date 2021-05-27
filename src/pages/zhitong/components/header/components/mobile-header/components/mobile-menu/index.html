@@ -1,0 +1,49 @@
+<div>
+    <div class="mobile">
+        <div class="mobile-menu">
+            <div class="mobile-menu-list" :class="{menuActive: menuListFlag}" v-for="(item,index) in menuList"
+                @click="onMenuActive(index)">
+                <p class="title">{{item.title}}</p>
+                <i-icon type="ios-arrow-forward" />
+            </div>
+            <div class="mobile-menu-content" :class="{menuActive: !menuListFlag}">
+                <div class="navigator" @click="toMenuBack">
+                    <i-icon type="ios-arrow-back" />
+                    <p>返回</p>
+                </div>
+                <div class="core" v-if="menuList[currentIndex].name === 'core'">
+                    <i-menu class="core-content" accordion>
+                        <i-submenu :name="item.name" v-for="(item,index) in subMenuList">
+                            <template slot="title">
+                                {{item.title}}
+                            </template>
+                            <i-menuGroup :title="subItem.title" v-for="(subItem,subIndex) in item.children">
+                                <i-menuItem :name="sub_subItem.name"
+                                    v-for="(sub_subItem,sub_subIndex) in subItem.children"
+                                    @click.native="onSubMenuActive(menuList[currentIndex].path,item.name,subItem.name,sub_subItem.id)">
+                                    <span>
+                                        {{sub_subItem.title}}
+                                    </span>
+                                </i-menuItem>
+                            </i-menuGroup>
+                        </i-submenu>
+                    </i-menu>
+                </div>
+                <div class="subMenu" v-else>
+                    <i-menu class="subMenu-content" accordion>
+                        <i-menuGroup :title="subItem.title"
+                            v-for="(subItem,subIndex) in menuList[currentIndex].children">
+                            <i-menuItem :name="subItem.name"
+                                @click.native="onSubMenuActive(menuList[currentIndex].path,subItem.name)">
+                                <span>
+                                    {{subItem.title}}
+                                </span>
+                            </i-menuItem>
+                        </i-menuGroup>
+                    </i-menu>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

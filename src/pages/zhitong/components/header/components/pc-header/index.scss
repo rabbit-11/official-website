@@ -1,0 +1,181 @@
+// 主要颜色
+$color-white-g: #fff;
+$color-red-g: #d20000;
+$color-black-g: #333;
+$color-grey-g: #999;
+
+.header {
+  @include flex(row, space-between, center);
+  @include size(100%, 0.8rem);
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  padding: 0 1.7rem 0 0.7rem;
+  // 背景颜色0.3s加速变化
+  transition: 0.3s background-color ease-in;
+
+  // logo样式
+  &-logo {
+    @include size(1.8rem, 0.43rem);
+    @include bg-img("~@/assets/images/zhitong/welcome/zhitong.png");
+    cursor: pointer;
+  }
+
+  &-menu {
+    @include flex(row, center);
+    height: 100%;
+    &-list {
+      height: 100%;
+      position: relative;
+      margin: 0 0.3rem;
+      // 为header下的标题统一样式，增加移入移出动画
+      &-title {
+        @include size(1.5rem, 100%);
+        font-size: 0.18rem;
+        line-height: 0.76rem;
+        font-weight: bold;
+        text-align: center;
+        color: $color-white-g;
+        transition: 0.2s all linear;
+        cursor: pointer;
+      }
+
+      &-line {
+        @include size(0.9rem, 3px);
+        @include absolute(unset, 0,.1rem ,0);
+        border-radius: 3px;
+        margin: 0 auto;
+        background-color: $color-red-g;
+      }
+      .drow{
+        animation: drowline 1s;
+      }
+      @keyframes drowline {
+        0%{
+          width: 0;
+        }
+        0%{
+          width: 0.9rem;
+        }
+      }
+      &-content {
+        .dropdown-active {
+          display: none;
+        }
+
+        &-dropdown {
+          position: absolute;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+          background-color: #fff;
+
+          .core {
+            display: flex;
+            padding: 0.2rem;
+
+            .link {
+              width: max-content;
+
+              .click {
+                min-width: 1.4rem;
+                line-height: 0.5rem;
+                text-align: center;
+                font-size: 0.16rem;
+                font-weight: bold;
+                color: #666;
+                padding: 0 0.4rem 0 0.2rem;
+                cursor: pointer;
+              }
+
+              // 鼠标移入时增加的样式
+              .active {
+                color: $color-red-g;
+                border-right: 2px solid $color-red-g;
+              }
+            }
+
+            .box {
+              border-left: 1px solid #ccc;
+              width: max-content;
+
+              &-content {
+                line-height: 0.5rem;
+                padding: 0 0.4rem;
+                font-size: 0.16rem;
+                cursor: pointer;
+
+                &-title {
+                  color: $color-black-g;
+                  font-weight: bold;
+                }
+
+                &-subTitle {
+                  color: #999;
+                  cursor: pointer;
+                  min-width: 3rem;
+
+                  &:hover {
+                    background-color: #eee;
+                  }
+                }
+              }
+            }
+          }
+
+          .subTitle {
+            @include size(1.5rem, auto);
+            font-size: 0.16rem;
+            line-height: 0.5rem;
+            text-align: center;
+            cursor: pointer;
+
+            &:hover {
+              background-color: #eee;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 标题hover设置背景
+.header:hover {
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
+  background: $color-white-g;
+}
+
+// 标题hover，为heaer后代中的p设置颜色
+.header:hover .header-menu-list-title {
+  color: $color-black-g;
+}
+
+// 标题hover，替换logo
+.header:hover .header-logo {
+  @include bg-img("~@/assets/images/zhitong/welcome/zhitong-opaque.png");
+}
+
+// 滚动后为header添加的样式
+.scrollH {
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
+  background: $color-white-g;
+}
+
+// 滚动下来的字体颜色
+.scrollP {
+  color: $color-black-g;
+}
+
+// 滚动后替换header logo
+.scrollH .header-logo {
+  @include bg-img("~@/assets/images/zhitong/welcome/zhitong-opaque.png");
+}
+
+@media screen and (max-width: 1366px) {
+  .header p {
+    font-size: 0.2rem;
+  }
+
+  .header .header-logo {
+    @include size(2rem, 0.5rem);
+  }
+}

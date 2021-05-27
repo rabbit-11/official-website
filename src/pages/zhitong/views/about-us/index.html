@@ -1,0 +1,25 @@
+<div class="about">
+
+    <u-banner :data="bannerData"></u-banner>
+
+    <div ref="introduction">
+        <u-subheader :data="data.introduction"> </u-subheader>
+        <u-introduction :data="data.introduction.desc"> </u-introduction>
+    </div>
+
+    <div ref="vision" >
+        <u-subheader :data="data.vision"> </u-subheader>
+        <u-vision :data="data.vision.desc"> </u-vision>
+    </div>
+
+    <div ref="development">
+        <u-subheader :data="data.development"> </u-subheader>
+        <u-development :data="data.development.desc"> </u-development>
+    </div>
+
+    <div ref="contact">
+        <u-subheader :data="data.contact"> </u-subheader>
+        <u-contact :data="data.contact.desc"> </u-contact>
+    </div>
+
+</div>

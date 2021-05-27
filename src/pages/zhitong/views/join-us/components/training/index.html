@@ -1,0 +1,15 @@
+<div class="training">
+    <div class="training-content">
+        <div class="training-content-img" v-for="(item, index) in data " :key="index">
+            <div class="flipper">
+                <div class="flipper-back">
+                    <img :src="item.backImg" alt="暂无图片">
+                </div>
+            </div>
+
+            <div class="title">
+                <p>{{item.text}}</p>
+            </div>
+        </div>
+    </div>
+</div>

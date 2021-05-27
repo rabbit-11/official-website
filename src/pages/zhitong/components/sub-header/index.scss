@@ -1,0 +1,86 @@
+.sub-header {
+  color: #999999;
+  padding: .9rem 0 .65rem;
+  overflow: hidden;
+  .subs-title {
+    @include size(100%, .66rem);
+    @include font(.4rem, bold);
+    @include flex(row,center,center);
+    color: #333333;
+    .line-one,
+    .line-two {
+      @include size(2px, .66rem);
+      box-shadow: 0 0 2px #d20000;
+      background-color: #d20000;
+      border-radius: 2px;
+    }
+    .sub-header-title{
+      margin: 0 .36rem;
+    }
+    // .line-one {
+    //   animation: goright 4s ;
+    // }
+    @keyframes goright {
+      0% {
+        left: 10%;
+        transform: rotate(0);
+      }
+      30% {
+        left: 42.5%;
+        transform: rotate(360deg);
+      }
+      60%,
+      100% {
+        left: 42.5%;
+        transform: rotate(900deg);
+      }
+    }
+    // .line-two {
+    //   animation: goleft 4s ;
+    // }
+    @keyframes goleft {
+      0% {
+        right: 10%;
+        transform: rotate(0);
+      }
+      30% {
+        right: 42.5%;
+        transform: rotate(-360deg);
+      }
+      60%,
+      100% {
+        right: 42.5%;
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .title-note {
+    font-size: .3rem;
+    line-height: .6rem;
+    padding-top: .2rem;
+  }
+  @media screen and(max-width:500px){
+    .subs-title{
+      font-size: 15px;
+    }
+    .title-note{
+      font-size: 13px;
+      margin-top: 6px;
+    }
+  }
+}
+.showHeader,.showSecondHeader{
+  .subs-title,.title-note{
+    animation: headerFade 1s;
+  }
+  @keyframes headerFade {
+    0% {
+      opacity: 0;
+      margin-top: 1.5rem;
+    }
+    100% {
+      opacity: 1;
+      margin-top: 0;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+<div class="v-welcome" ref="welcome">
+    <!-- 顶部轮播图 -->
+    <i-carousel class="first-carousel" autoplay height="7.46rem" loop arrow="hover" autoplay-speed="5000">
+        <i-carouselItem v-for="(item,index) in welcomeData.bannerList">
+            <img class="carousel-img in" :src="item" />
+        </i-carouselItem>
+    </i-carousel>
+
+    <!-- 公司业务 -->
+    <u-subheader :data="welcomeData.subHeaders.business" />
+    <u-business :class="{showdata:animationFlag===3}" :data="welcomeData.highwayData" />
+    <u-business :class="{showSeconddata:animationFlag===4}" :data="welcomeData.anfangData" />
+
+    <!-- 客户案例 -->
+    <u-subheader :data="welcomeData.subHeaders.cases" />
+    <i-carousel class="second-carousel" height="7.87rem" loop autoplay autoplay-speed="4000" radius-dot="true" arrow="never">
+        <i-carouselItem v-for="(item,index) in welcomeData.caseList">
+            <div class="demo-carousel">
+                <div class="business-item">
+                    <div class="name">{{item.name}}</div>
+                    <div class="example">{{item.content}}</div>
+                    <div class="get-more" @click="getmore(item)">了解更多
+                        <Icon type="ios-arrow-forward" />
+                    </div>
+                </div>
+                <img class="business-img" :src="item.image" />
+            </div>
+        </i-carouselItem>
+    </i-carousel>
+
+    <!-- 合作伙伴 -->
+    <div :class="[{partnerAnimation : animationFlag===6 },'partner']">
+        <div class="partner-list">
+            <div class="partner-item" v-for="item in welcomeData.partnerList">
+                <img class="partner-pic" :src="item" />
+            </div>
+        </div>
+        <div class="partber-num">
+            <div class="note">合作伙伴及客户</div>
+            <div class="num">
+                <fw-number-counter :value=partberNum></fw-number-counter>
+                <div>+ 战略合作伙伴</div>
+            </div>
+        </div>
+    </div>
+
+</div>

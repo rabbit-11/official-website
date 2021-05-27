@@ -1,0 +1,43 @@
+<div class="softwork-section">
+
+    <u-banner :data="bannerData"></u-banner>
+
+    <u-breadcumb />
+
+    <div class="business-introduction">
+        <div>
+            <u-subheader :data="{title:currentBusiness.name}"></u-subheader>
+            <p v-for="summary in currentBusiness.summary" class="summary">{{summary}}</p>
+            <img v-for="item in currentBusiness.summaryPic" class="pic-path" :src="item" />
+        </div>
+
+        <div class="core-function">
+            <u-subheader :data="{title:'产品核心功能'}"></u-subheader>
+            <div v-if="currentBusiness.coreFunction.length>0">
+                <div class="function-list">
+                    <div v-for="(item,index) in currentBusiness.coreFunction" class="function-item">
+                        <div class="function-pic">
+                            <img class="pic" :src="item.pic" />
+                        </div>
+                        <div class="function-name">{{item.name}} <span v-if="item.value" class="function-value">
+                                {{item.value}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature">
+            <u-subheader :data="{title:'产品优势/特色'}"></u-subheader>
+            <u-feature-list :list="currentBusiness.featrue"></u-feature-list>
+        </div>
+        <u-subheader :data="{title:'产品展示'}"></u-subheader>
+        <div class="show-list">
+            <div v-for="item in currentBusiness.showList" class="show-item">
+                <img class="show-pic" :src="item" />
+                <!-- <u-animate-image :imageurl="item"></u-animate-image> -->
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,194 @@
+.enter {
+  z-index: 3 !important;
+}
+
+.black-theme{
+  .header {
+    color: #6d6d6d;
+    border: none;
+    .logo-name {
+      @include size(1.22rem, 0.4rem);
+      @include bg-img("~@/assets/images/logo/logo-word.png");
+      &>span{
+        display: none;
+      }
+    }
+
+
+  
+    .links {
+      .link {
+        color: #6d6d6d;
+      }
+    }
+  
+    .handle-btn {
+      a {
+        color: #6d6d6d;
+      }
+    }
+  }
+}
+
+.header {
+  @include size(100%, 0.8rem);
+  @include flex(row, unset, center);
+  border-bottom: 1px solid #ccc;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #333;
+  z-index: 2;
+
+  .logo {
+    @include size(1.6rem, 0.4rem);
+    @include flex(row, flex-start, center);
+    margin: 0 1.6rem 0 1rem;
+    cursor: pointer;
+
+    .logo-img {
+      @include size(.4rem, 0.4rem);
+      @include bg-img("~@/assets/images/logo/logo-icon.png");
+    }
+
+    .logo-name {
+      font-size: .22rem;
+      color: #ec6149;
+      margin-left: .06rem;
+      font-weight: 600;
+      letter-spacing: .02rem;
+    }
+
+    .logo-name-bg {
+      @include size(1.22rem, 0.4rem);
+      @include bg-img("~@/assets/images/logo/logo-word.png");
+    }
+  }
+
+  .links {
+    @include size(auto, 0.8rem);
+    @include flex(flex-start, space-between, center);
+
+    .link {
+      @include font(0.18rem, bold);
+      margin-right: 0.6rem;
+      letter-spacing: 0.02rem;
+      color: #333;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .link:hover {
+      color: #ec6149;
+    }
+
+    .link-active {
+      color: #ec6149 !important;
+
+      .check-bg {
+        @include size(100%, 0.04rem);
+        @include absolute(unset, 0, -0.08rem, unset);
+        border-radius: 0.03rem;
+        background-color: #ec6149;
+      }
+    }
+
+    .router-link-active,
+    .router-link-exact-active {
+      color: #ec6149 !important;
+
+      .check-bg {
+        @include size(100%, 0.04rem);
+        @include absolute(unset, 0, -0.08rem, unset);
+        border-radius: 0.03rem;
+        background-color: #ec6149;
+      }
+    }
+  }
+
+  .handle-btn {
+    @include font(0.18rem, bold);
+
+    a {
+      color: #333;
+    }
+  }
+
+  .handle-btn:hover {
+    a {
+      color: #ec6149;
+    }
+  }
+
+  .login-btn {
+    @include absolute(unset, 6%, unset, unset);
+    cursor: pointer;
+  }
+
+  .login-model {
+    .ivu-form {
+      @include flex(column, center, center);
+
+      .ivu-input-wrapper {
+        width: 3rem;
+      }
+
+      .handle-btn {
+        @include flex(unset, center, center);
+        margin-bottom: 0.24rem;
+
+        .ivu-btn {
+          margin: 0 0.1rem;
+          border: 1px solid #ec6149;
+        }
+
+        .ivu-btn:first-child {
+          background-color: #fff;
+          color: #ec6149;
+        }
+
+        .ivu-btn:last-child {
+          background-color: #ec6149;
+          color: #fff;
+        }
+      }
+    }
+
+    .ivu-modal-header p {
+      padding-left: 0.16rem;
+    }
+  }
+
+  .user-settings {
+    .ivu-icon-ios-arrow-down:before {
+      color: white;
+    }
+  }
+}
+
+.headerIndex {
+  z-index: 0;
+}
+
+// .headerChange {
+//   color: #6d6d6d;
+//   border: none;
+
+//   .links {
+//     .link {
+//       color: #6d6d6d;
+//     }
+//   }
+
+//   .handle-btn {
+//     a {
+//       color: #6d6d6d;
+//     }
+//   }
+// }
+
+@media screen and(max-width:1366px) {
+  .header .login-btn {
+    right: 8%;
+  }
+}

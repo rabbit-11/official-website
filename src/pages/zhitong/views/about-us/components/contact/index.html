@@ -1,0 +1,17 @@
+<div class="contact">
+   <div class="contact-content">
+      <i-card class="contact-content-card" v-for="(item,index) in data">
+         <p class="location">
+            {{item.location}}</p>
+         <p>
+            公司：{{item.company}}
+         </p>
+         <p>
+            电话：{{item.tel}}
+         </p>
+         <p>
+            地址：{{item.addr}}
+         </p>
+      </i-card>
+   </div>
+</div>

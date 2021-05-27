@@ -1,0 +1,117 @@
+$color-red-g: #d20000;
+
+.mobile {
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  z-index: 999;
+  height: 100%;
+
+  &-menu {
+    width: 100%;
+
+    .menuActive {
+      display: none;
+    }
+
+    &-list {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 0.5rem;
+      line-height: 2rem;
+      font-size: 0.7rem;
+      border-bottom: 1px solid #f1f1f1;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    &-content {
+      .ivu-menu {
+        width: 100% !important;
+
+        &-item {
+          padding: 14px 0;
+          border-bottom: 1px solid #333;
+
+          &-active {
+            border-bottom: none !important;
+          }
+        }
+
+        &-submenu-title {
+          padding: 14px 0;
+          border-bottom: 1px solid #333;
+
+          &-icon {
+            right: 0;
+          }
+        }
+      }
+
+      .ivu-menu-vertical.ivu-menu-light:after {
+        display: none;
+      }
+
+      // 清除box下的menu 选中时的背景颜色（右侧竖线颜色）
+      .ivu-menu-light.ivu-menu-vertical .ivu-menu-item-active:not(.ivu-menu-submenu):after {
+        background: none;
+      }
+
+      .ivu-menu-vertical .ivu-menu-item:hover,
+      .ivu-menu-vertical .ivu-menu-submenu-title:hover {
+        color: #d20000;
+      }
+
+      // 全局设置i-menuGroup标题样式 并隐藏（核心业务会用到）
+      .ivu-menu-item-group-title {
+        color: #333;
+        font-size: 0.16rem;
+        // padding-left: 0 !important;
+        font-weight: bold;
+        display: none;
+      }
+
+      .navigator {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0 0.5rem;
+        line-height: 2rem;
+        font-size: 0.7rem;
+        font-weight: bold;
+        color: #333;
+        background-color: #999;
+      }
+
+      .core {
+        margin: 0 0.5rem;
+
+        &-content {
+          // 对i-menuGroup样式进行调整
+          .ivu-menu-item-group {
+            // 显示核心业务下的i-menuGroup标题
+            &-title {
+              display: block;
+            }
+            @media screen and(max-width:600px) {
+              &-title {
+                font-size: 14px;
+              }
+            }
+            .ivu-menu-item {
+              border-bottom: none;
+              // padding-left: 0px !important;
+            }
+          }
+        }
+      }
+
+      .subMenu {
+        margin: 0 0.5rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,85 @@
+.breadcumb {
+  width: 100%;
+  padding: 0.31rem 0.5rem;
+  font-size: 0.18rem;
+  background-color: #fff;
+}
+.ivu-cascader {
+  width: 100%;
+  z-index: 1;
+  .ivu-cascader-rel {
+    width: 14%;
+    .ivu-cascader-label {
+      display: block !important;
+      font-size: 0.18rem;
+    }
+  }
+  @media screen and(max-width:500px) {
+    .ivu-cascader-rel {
+      width: 55%;
+      .ivu-cascader-label {
+        font-size: 14px;
+      }
+    }
+  }
+  .ivu-select-dropdown > div > span > .ivu-cascader-menu {
+    display: none !important;
+  }
+  .ivu-select-dropdown {
+    width: auto;
+    left: 5% !important;
+  }
+  .ivu-cascader-menu {
+    width: 100%;
+    .ivu-cascader-menu-item {
+      font-size: 0.15rem !important;
+    }
+  }
+  .ivu-select-dropdown,
+  .ivu-cascader-menu {
+    max-height: none !important;
+    height: auto !important;
+  }
+  .ivu-input,
+  .ivu-input:hover,
+  .ivu-input:focus {
+    font-size: 0.18rem;
+    border: 0 !important;
+    border-color: transparent !important;
+    color: transparent;
+    background-color: transparent;
+  }
+}
+.core {
+  .ivu-cascader-rel {
+    width: 27%;
+  }
+  @media screen and(max-width:500px) {
+    .ivu-cascader-rel {
+      width: 100%;
+      .ivu-cascader-label {
+        font-size: 14px;
+      }
+    }
+  }
+  .ivu-select-dropdown {
+    width: 17%;
+    background-color: #fff;
+    left: 10% !important;
+    > div > span > span > .ivu-cascader-menu {
+      display: none !important;
+    }
+  }
+  @media screen and(max-width:500px) {
+    .ivu-select-dropdown {
+      width: 50%;
+    }
+  }
+}
+.fix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  border-bottom: 1px solid #f1ebeb;
+}

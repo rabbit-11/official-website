@@ -1,0 +1,64 @@
+.function-list {
+  width: 100%;
+  @include flex(row, center, center);
+  margin: 0.5rem 0;
+  .function-item {
+    @include size(1.88rem, 2.16rem);
+    @include flex(column, center, center);
+    margin: 0 .5rem .2rem;
+    position: relative;
+    .function-pic,
+    .pic {
+      @include size(1.1rem, 1.1rem);
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 0.2rem;
+    }
+    .function-name {
+      font-size: 0.18rem;
+      .function-value {
+        color: #d20000;
+        @include font(0.3rem, bold);
+      }
+    }
+  }
+  .function-item:before,
+  .function-item:after {
+    @include absolute(0, 0, 0, 0);
+    visibility: hidden;
+    content: "";
+    border: 2px solid #cd0000;
+  }
+  .border-show {
+    &:before {
+      animation: borderAround 1.5s infinite linear;
+      visibility: visible;
+    }
+    &:after {
+      animation: borderAroundleft 1.5s infinite linear;
+      visibility: visible;
+    }
+  }
+  @keyframes borderAround {
+    0% {
+      clip: rect(0 1.88rem 0.02rem 0);
+    }
+    50% {
+      clip: rect(0 1.88rem 2.16rem 1.86rem);
+    }
+    100% {
+      clip: rect(2.14rem 1.88rem 2.16rem 0);
+    }
+  }
+  @keyframes borderAroundleft {
+    0% {
+      clip: rect(2.14rem 1.88rem 2.16rem 0);
+    }
+    50% {
+      clip: rect(0 0.02rem 2.16rem 0);
+    }
+    100% {
+      clip: rect(0 1.88rem 0.02rem 0);
+    }
+  }
+}

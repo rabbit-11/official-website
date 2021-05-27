@@ -1,0 +1,98 @@
+.footer {
+  @include flex(column, flex-start, center);
+  font-size: 0.24rem;
+  padding: 0.7rem 0 0.6rem;
+  color: #999999;
+  background-color: #323232;
+  .footer-upper {
+    @include flex(row, space-between, unset);
+    flex-wrap: wrap;
+    padding: 0 3rem;
+    width: 100%;
+    letter-spacing: 1px;
+    .footer-left {
+      @include flex(column, flex-start, center);
+      color: rgba(255, 255, 255, 0.6);
+      .logo-img {
+        @include size(2.5rem, 0.54rem);
+        @include bg-img("~@/assets/images/zhitong/welcome/zhitong.png");
+      }
+      .wechat {
+        @include size(1.6rem, 1.6rem);
+        @include bg-img("~@/assets/images/zhitong/welcome/WeChat.jpg");
+        margin: 0.3rem 0 0.3rem;
+      }
+    }
+    .footer-middle {
+      @include flex(column, flex-start, center);
+      .contacts {
+        height: 0.54rem;
+        line-height: 0.54rem;
+        margin-bottom: 0.2rem;
+        font-size: 0.3rem;
+        text-align: left;
+      }
+      .contact-list {
+        .contact-item {
+          @include flex(row, flex-start, flex-start);
+          margin-bottom: 0.1rem;
+          .name {
+            min-width: 1.3rem;
+            text-align: right;
+            margin-right: 0.3rem;
+          }
+          .value {
+            text-align: left;
+          }
+        }
+      }
+    }
+    .footer-right {
+      width: 2.5rem;
+      @include flex(column, flex-start, center);
+      .links {
+        margin-bottom: 0.2rem;
+        font-size: 0.3rem;
+      }
+      .link a {
+        color: #999999;
+        margin-bottom: 0.1rem;
+      }
+      .link a:hover {
+        color: #d20000;
+      }
+    }
+  }
+  @media screen and(max-width:500px) {
+    .footer-upper {
+      padding: 0 1rem;
+      .footer-right {
+        width: 3rem;
+      }
+    }
+  }
+  .footer-bottom {
+    width: 100%;
+    padding-top: 0.3rem;
+    @include flex(column, flex-start, center);
+    .cut-line {
+      margin-bottom: 0.2rem;
+      @include size(70%, 1px);
+      background-color: #999;
+    }
+    .address {
+      font-size: 0.2rem;
+      margin-top: 0.12rem;
+      text-align: center;
+    }
+    .declare {
+      font-size: 0.16rem;
+      @include flex(row, center, center);
+      .cut-line {
+        @include size(1px, 0.28rem);
+        margin: 0 0.14rem;
+        background-color: #979797;
+      }
+    }
+  }
+}

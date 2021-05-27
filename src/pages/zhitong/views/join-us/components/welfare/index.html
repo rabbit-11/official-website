@@ -1,0 +1,12 @@
+<div>
+    <div class="welfare">
+        <div class="welfare-content">
+            <div class="welfare-content-img" v-for="(item, index) in data " :key="index">
+                <img :src="item.img" alt="暂无图片">
+                <div class="title">
+                    <p>{{item.text}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="user-settings">
+    <i-dropdown @on-click="onDropdownClick">
+        <img :src="$user.photo" />
+        <i-icon type="ios-arrow-down"></i-icon>
+        <i-dropdown-menu slot="list">
+            <i-dropdown-item name="usercenter">个人中心</i-dropdown-item>
+            <i-dropdown-item name="password">修改密码</i-dropdown-item>
+            <i-dropdown-item name="loginout">注销</i-dropdown-item>
+        </i-dropdown-menu>
+    </i-dropdown>
+
+    <u-password-modal :visible.sync="showPasswordModal" ></u-password-modal>
+
+</div>

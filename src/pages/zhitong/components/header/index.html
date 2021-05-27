@@ -1,0 +1,8 @@
+<div>
+    <div v-if="versions === 'pc'">
+        <u-pc-header :menuList="menuList" :subMenuList="subMenuList"></u-pc-header>
+    </div>
+    <div v-else>
+        <u-mobile-header :menuList="menuList" :subMenuList="subMenuList"></u-mobile-header>
+    </div>
+</div>

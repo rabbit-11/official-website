@@ -1,0 +1,49 @@
+<div class="case-section">
+
+    <u-banner :data="bannerData"></u-banner>
+
+    <u-breadcumb />
+
+    <div v-if="query.type==='security'" class="case-list">
+        <div @click="chooseCase(index)" v-for="(item,index) in currentType.caseList" class="case-item">
+            <div class="case-value">
+                <img class="pic" :src="item.icon" />
+            </div>
+            <div class="case-name">{{item.name}}</div>
+        </div>
+    </div>
+
+    <div class="introduction">
+        <div class="introduction-content">
+            <div :class="['introduction-word',{'sfont':currentBusiness.introduction.length>16}]">
+                {{currentBusiness.introduction}}</div>
+        </div>
+        <img :class="['introductionPic',{'picshow':picshow}]" :src="currentBusiness.introductionPic" />
+    </div>
+
+    <!-- 业务案例详情数据大于1条用轮播图展示 -->
+    <div v-if="currentBusiness.detail.length===1" v-for="detail in currentBusiness.detail" class="detail">
+        <div class="detail-left">
+            <div class="caseName">{{query.type==='security'?'智慧安防':'智慧高速'}}</div>
+            <div class="discription">{{detail.discription}}</div>
+        </div>
+        <div class="detail-right">
+            <img class="datail-pic" :src="detail.pic" />
+        </div>
+    </div>
+    <i-carousel v-if="currentBusiness.detail.length>1" height="6.2rem" v-model="carouselValue" arrow="never">
+        <i-carouselItem v-for="detail in currentBusiness.detail">
+            <div class="detail">
+                <div class="detail-left">
+                    <div class="caseName">{{query.type==='security'?'智慧安防':'智慧高速'}}</div>
+                    <div class="discription">{{detail.discription}}</div>
+                </div>
+                <div class="detail-right">
+                    <img class="datail-pic" :src="detail.pic" />
+                </div>
+            </div>
+        </i-carouselItem>
+    </i-carousel>
+
+
+</div>

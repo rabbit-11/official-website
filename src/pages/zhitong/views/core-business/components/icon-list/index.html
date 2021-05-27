@@ -1,0 +1,12 @@
+<div v-if="list.length>0">
+    <div class="function-list">
+        <div v-for="(item,index) in list" @mouseenter="iconAnimation(index)" @mouseleave="iconAnimationOrder"
+            :class="['function-item',{'border-show':index===activeIndex}]">
+            <div class="function-pic">
+                <img class="pic" :src="item.pic" />
+            </div>
+            <div class="function-name">{{item.name}} <span v-if="item.value" class="function-value"> {{item.value}}</span>
+            </div>
+        </div>
+    </div>
+</div>

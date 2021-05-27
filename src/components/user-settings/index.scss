@@ -1,0 +1,31 @@
+.user-settings {
+  position: absolute;
+  right: 2%;
+  top: 0rem;
+  height: 100%;
+  @include flex(row, center, center);
+  .ivu-dropdown {
+    cursor: pointer;
+    margin-left: 19px;
+
+    img {
+      @include size(42px, 42px);
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .ivu-icon {
+      margin-bottom: 3px;
+    }
+
+    .ivu-dropdown-item {
+      text-align: center;
+    }
+  }
+}
+
+@media screen and(min-width:1366px) {
+  .user-settings {
+    right: 1%;
+  }
+}

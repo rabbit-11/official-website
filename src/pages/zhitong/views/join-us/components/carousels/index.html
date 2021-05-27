@@ -1,0 +1,22 @@
+<div class="index-main">
+
+    <div class="around">
+        <div class="pre" >
+            <img v-if="aroundData&&aroundData[0]" :class="['pre-pic',{'fadein':fadeFlag}]" :src="aroundData[0]" @click="replace(false)" />
+            <div class="mask"></div>
+        </div>
+        <div class="next" >
+            <img v-if="aroundData&&aroundData[1]" :class="['next-pic',{'fadein':fadeFlag}]" :src="aroundData[1]" @click="replace(true)" />
+            <div class="mask"></div>
+        </div>
+    </div>
+
+    <div class="slider">
+        <img :class="{'fadein':fadeFlag}" :src="data[activeIndex-1].src" />
+    </div>
+
+    <div class="pointer">
+        <li v-for="(item, index) in dataLength" :class="{'activeColor':index+1===activeIndex}" :key=" index" @click="onChoose(index)"></li>
+    </div>
+
+</div>

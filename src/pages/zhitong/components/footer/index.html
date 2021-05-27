@@ -1,0 +1,35 @@
+<div class="footer">
+    <div class="footer-upper">
+        <div class="footer-left">
+            <div class="logo-img"></div>
+            <div class="wechat"></div>
+        </div>
+        <div class="footer-middle">
+            <div class="contacts">联系我们</div>
+            <div class="contact-list">
+                <div class="contact-item" v-for="item in contactList">
+                    <div class="name">{{item.name}}</div>
+                    <div class="value">{{item.value}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-right">
+            <div class="links">友情链接</div>
+            <div class="link" v-for="item in linkList">
+                <a :href="item.link" target="_blank">{{item.name}}</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="footer-bottom">
+        <div class="cut-line"></div>
+        <div class="address">北京市海定区东北旺西路8号中关村软件园9号楼国际软件大厦
+            <br />武汉市东湖高新区光谷金融港B4栋
+        </div>
+        <div class="declare">
+            <div>免责声明</div>
+            <div class="cut-line"></div>
+            <div>隐私保护</div>
+        </div>
+    </div>
+</div>

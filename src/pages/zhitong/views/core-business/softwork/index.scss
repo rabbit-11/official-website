@@ -1,0 +1,90 @@
+.softwork-section {
+  @include size;
+  .business-introduction {
+    width: 100%;
+    .businessName {
+      @include font(0.3rem, bold);
+      text-align: center;
+      margin-bottom: 0.3rem;
+    }
+    .summary {
+      font-size: 0.2rem;
+      padding: 0 2rem;
+      line-height: 220%;
+      text-indent: 2em;
+    }
+    @media screen and(max-width:500px){
+      .summary{
+        letter-spacing: 1px;
+        font-size: 13px;
+      }
+    }
+    .pic-path {
+      width: 100%;
+      padding: 0.5rem 2rem 0;
+    }
+    .core-function {
+      .function-list {
+        width: 100%;
+        @include flex(row, center, center);
+        flex-wrap: wrap;
+        padding: 0.5rem;
+        .function-item {
+          @include flex(column, flex-start, center);
+          margin: 0 0.1rem 0.6rem;
+          position: relative;
+          cursor: pointer;
+          .function-pic,
+          .pic {
+            @include size(1.1rem, 1.1rem);
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 0.2rem;
+          }
+          .function-name {
+            @include ellipsis;
+            font-size: 0.18rem;
+            width: 2.4rem;
+            text-align: center;
+            .function-value {
+              color: #d20000;
+              @include font(0.3rem, bold);
+            }
+          }
+        }
+        @media screen and(max-width:500px){
+          .function-item{
+            width: 80px;
+            .function-pic,.pic{
+              @include size(40px, 40px);
+            }
+            .function-name {
+              font-size: 13px;
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+    .feature {
+      background-color: #fafafa;
+    }
+    .show-list {
+      @include flex(row, space-between, unset);
+      flex-wrap: wrap;
+      padding: 0 2rem;
+      .show-item {
+        @include size(48%, auto);
+        overflow: hidden;
+        margin-bottom: 0.6rem;
+        position: relative;
+        .show-pic {
+          width: 100%;
+          object-fit: cover;
+          height: 4.2rem;
+          border: 1px solid #f0f0f0;
+        }
+      }
+    }
+  }
+}

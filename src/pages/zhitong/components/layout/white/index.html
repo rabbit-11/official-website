@@ -1,0 +1,12 @@
+<div class="page-container">
+    <div>
+        <keep-alive :include="cachePageList">
+            <router-view></router-view>
+        </keep-alive>
+        <!--不推荐使用下面配置 keepAlive 来缓存，会导致进入其它不使用缓存页面时，触发配置了缓存页面的 mounted / created 方法-->
+        <!-- <keep-alive>
+            <router-view v-if="$route.meta.keepAlive"></router-view>
+        </keep-alive>
+        <router-view v-if="!$route.meta.keepAlive"></router-view> -->
+    </div>
+</div>

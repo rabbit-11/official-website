@@ -1,0 +1,134 @@
+.business-part {
+  margin-bottom: 1.2rem;
+  .part-name {
+    @include font(0.3rem, bold);
+    color: #333333;
+  }
+  @media screen and(max-width:500px){
+    .part-name{
+      font-size: 13px;
+    }
+  }
+  .part-list {
+    padding: 0.8rem 2.8rem 0;
+    .ivu-row{
+      width: 100%;
+      .ivu-col{
+        cursor: pointer;
+      }
+      .ivu-col:nth-child(7) .list-item,.ivu-col:nth-child(8) .list-item{
+        animation: slowShow 1s;
+      }
+      .ivu-col:nth-child(8) .list-item{
+        animation-duration: 2s;
+      }
+      @keyframes slowShow {
+        0%{
+          opacity: 0;
+          margin-left: 1rem;
+        }
+        100%{
+          opacity: 1;
+          margin-left: 5%;
+        }
+      }
+    .ivu-col:hover {
+      .list-item {
+        background-color: #f0f0f0;
+        .name{
+          color: #d75858;
+          font-weight: 600;
+        }
+      }
+    }
+    .list-item {
+      @include size(90%,auto);
+      box-shadow: 0px 0px .2rem 0px rgba(0,0,0,0.1);
+      @include flex(column, unset, center);
+      margin:0 auto .33rem;
+      padding-bottom: 0.33rem;
+      border-radius: 0.06rem;
+      .icon {
+        @include size(2.5rem, 2.5rem);
+        @include flex(row, center, center);
+        object-fit: cover;
+        margin: .5rem 0 .34rem;
+        border-radius: 50%;
+        border: 1px solid #f0f0f0;
+      }
+      .name {
+        @include ellipsis;
+        width: 100%;
+        padding: 0 0.3rem;
+        font-size: .2rem;
+        color: #000000;
+        letter-spacing: 2px;
+      }
+      @media screen and(max-width:500px){
+        .name{
+          font-size: 13px;
+        }
+      }
+    }
+  }
+  }
+  @media screen and(max-width:600px){
+    .part-list{
+      padding: 0.8rem 2rem 0;
+    }
+  }
+  .more-icon {
+    @include size(.4rem,.4rem);
+    position: relative;
+    margin: 0 auto;
+    cursor: pointer;
+    .ivu-icon-ios-arrow-down,
+    .ivu-icon-ios-arrow-up {
+      @include absolute(0, 50%, unset, unset);
+      transform: translateX(50%);
+      font-size: 0.3rem;
+      color: #d75858;
+      cursor: pointer;
+    }
+    .upAnimation {
+      animation: up 1s linear infinite running;
+    }
+    .downAnimation {
+      animation: drop 1s linear infinite running;
+    }
+    @keyframes drop {
+      0% {
+        top: 0px;
+        opacity: 0;
+      }
+      30% {
+        top: 10px;
+        opacity: 1;
+      }
+      100% {
+        top: 25px;
+        opacity: 0;
+      }
+    }
+    @keyframes up {
+      0% {
+        top: 25px;
+        opacity: 0;
+      }
+      30% {
+        top: 10px;
+        opacity: 1;
+      }
+      100% {
+        top: 0px;
+        opacity: 0;
+      }
+    }
+  }
+}
+.showdata,.showSeconddata{
+  overflow: hidden;
+  .part-name,.part-list{
+    animation: fadeIn 1.5s;
+  }
+}

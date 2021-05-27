@@ -1,0 +1,47 @@
+<div>
+    <div :class="['header',{'scrollH': isScroll || isJump}]">
+        <div class="header-logo" @click="toHomePage"></div>
+        <div class="header-menu">
+            <div class="header-menu-list" @mouseenter="onTitleEnter(index)" @mouseleave="onTitleLeave(index)"
+                v-for="(item,index) in menuList" :key="index">
+                <p class="header-menu-list-title" @click="onClickTitle(item)" :class=" [{'scrollP':isScroll || isJump}]">
+                    {{item.title}}
+                </p>
+                <div v-if="currentPath.includes(item.path)" class="header-menu-list-line"></div>
+                <div v-if="titleIndex === index" v-show="dropdownActive" class="header-menu-list-content">
+                    <div class="header-menu-list-line"></div>
+                    <div v-if="item.name === 'core' " class="header-menu-list-content-dropdown"
+                        :class="{'dropdown-active': flag}">
+                        <div class="core">
+                            <div class="link">
+                                <p @mouseenter="onSubTitleEnter(subIndex)" v-for="(subItem,subIndex) in subMenuList"
+                                    :name="subItem.name" :class="['click',{'active': subTitleIndex===subIndex}]">
+                                    {{subItem.title}}
+                                </p>
+                            </div>
+                            <div class="box">
+                                <div class="box-content"
+                                    v-for="(subItem,subIndex) in subMenuList[subTitleIndex].children">
+                                    <p class="box-content-title">
+                                        {{subItem.title}}
+                                    </p>
+                                    <p class="box-content-subTitle" :name="sub_subItem.name"
+                                        @click="onSubMenuActive(item.path,subMenuList[subTitleIndex].name,subItem.name,sub_subItem.id)"
+                                        v-for="(sub_subItem,sub_subIndex) in subItem.children">
+                                        {{sub_subItem.title}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div v-else class="header-menu-list-content-dropdown" :class="{'dropdown-active': flag}">
+                        <p class="subTitle" :name="subItem.name" v-for="(subItem,subIndex) in item.children"
+                            @click="onSubMenuActive(item.path,subItem.name)">
+                            {{subItem.title}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

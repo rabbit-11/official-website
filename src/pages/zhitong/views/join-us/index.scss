@@ -1,0 +1,51 @@
+$color-right-join: #d20000;
+$color-black-join : #333333;
+
+.join {
+    header {
+        @include flex(row, center, center);
+        font-size: 0.38rem;
+        margin: .5rem auto;
+        text-align: center;
+        color: $color-black-join;
+        font-weight: bold;
+
+        p {
+            @include size(3rem, 100%);
+            border-left: 2px solid $color-right-join;
+            border-right: 2px solid $color-right-join;
+        }
+    }
+
+    .environment {
+        width: 100%;
+        padding: 0.5rem 0;
+    }
+
+    .team {
+        width: 100%;
+        padding: 0.5rem 0;
+    }
+
+    @keyframes rotate {
+        100% {
+            transform: rotateY(180deg);
+        }
+    }
+
+    .fadeInUpa {
+        animation: fadeInUpa 1s;
+    }
+
+    @keyframes fadeInUpa {
+        0% {
+            opacity: 0;
+            transform: translate3d(0, 30px, 0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: none;
+        }
+    }
+}

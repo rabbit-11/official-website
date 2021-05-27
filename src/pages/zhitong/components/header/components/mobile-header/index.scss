@@ -1,0 +1,19 @@
+.mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 2rem;
+  background-color: #fff;
+  padding: 0 0.5rem;
+
+  &-logo {
+    width: 120px;
+    height: 28px;
+    @include bg-img("~@/assets/images/zhitong/welcome/zhitong-opaque.png");
+    cursor: pointer;
+  }
+
+  &-menu {
+    font-size: 1rem;
+  }
+}

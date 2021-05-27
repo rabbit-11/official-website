@@ -1,0 +1,15 @@
+.container {
+  .single-page-con {
+    position: relative;
+    top: 0rem;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    background-color: #fff;
+    width: 100%;
+    transition: left 0.3s;
+    .single-page {
+      height: 100%;
+    }
+  }
+}

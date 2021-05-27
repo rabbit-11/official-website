@@ -1,0 +1,17 @@
+<div class="business-part">
+    <div class="part-name">{{data.name}}</div>
+    <div class="part-list">
+        <Row>
+            <Col v-for="item in currentList"  @click.native="getmore(item)" justify="start" :xs="{ span: 12 }" :lg="{ span: 6 }">
+                <div class="list-item">
+                    <img :src="item.icon" class="icon" />
+                    <div class="name" :title="item.name">{{item.name}}</div>
+                </div>
+            </Col>
+        </Row>
+    </div>  
+    <div class="more-icon" @click="moreFlg=!moreFlg">
+        <Icon class="downAnimation" title="点击查看更多" v-if="moreFlg&&data.list.length>5" type="ios-arrow-down" />
+        <Icon class="upAnimation" title="点击收起菜单" v-if="!moreFlg&&data.list.length>5" type="ios-arrow-up" />
+    </div>
+</div>

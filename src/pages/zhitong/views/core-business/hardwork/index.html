@@ -1,0 +1,42 @@
+<div class="hardwork-section">
+
+    <u-banner :data="bannerData" />
+
+    <u-breadcumb />
+
+    <div class="business-introduction" v-if="currentBusiness">
+
+        <div class="introduction">
+            <div class="word-image" @mouseenter="imageAnimation(true)"  @mouseleave="imageAnimation(false)">
+                <img :class="['image-pic',{'in':animateFlag}]" :src="currentBusiness.introduction.image" />
+            </div>
+        </div>
+
+        <div v-if="currentBusiness.coreFunction.length>0">
+            <u-subheader :data="{title:'产品优势'}" />
+            <div v-if="currentBusiness.coreFunction.length>0">
+                <div class="function-list">
+                    <div v-for="(item,index) in currentBusiness.coreFunction" class="function-item">
+                        <div class="function-pic"><img class="pic" :src="item.pic" /></div>
+                        <div class="function-name">
+                            {{item.name}} <span v-if="item.value" class="function-value"> {{item.value}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scene">
+            <u-subheader :data="{title:'助力场景'}" />
+            <div class="discription">{{currentBusiness.scene.discription}}</div>
+            <div class="scene-list">
+                <div v-for="item in currentBusiness.scene.sceneList" class="scene-item">
+                    <img class="scene-pic" :src="item.pic" />
+                    <div class="scene-name">{{item.name}}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

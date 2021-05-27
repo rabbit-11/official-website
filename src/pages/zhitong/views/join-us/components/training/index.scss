@@ -1,0 +1,56 @@
+.training {
+  width: 100%;
+  padding: 0.5rem 0.5rem;
+
+  &-content {
+    @include flex(row, space-around);
+    flex-flow: wrap;
+    &-img {
+      position: relative;
+      @include size(8.5rem, 4.8rem);
+      margin-bottom: 0.5rem;
+      transition: all 0.6s;
+      perspective: 10000;
+
+      .flipper {
+        position: relative;
+        transition: 0.6s;
+        // transform-style: preserve-3d;
+        &-front {
+          @include size(8.5rem, 4.8rem);
+          z-index: 2;
+
+          img {
+            @include size();
+            object-fit: cover;
+          }
+        }
+
+        &-back {
+          @include size(8.5rem, 4.8rem);
+          backface-visibility: hidden;
+          position: absolute;
+          top: 0;
+          left: 0;
+          img {
+            @include size();
+            object-fit: cover;
+          }
+        }
+      }
+      .title {
+        @include flex(row, center, center);
+        @include absolute(0, 0, 0, 0);
+        margin: 0 auto;
+        background-color: rgba(9, 9, 9, 0.3);
+        font-size: 0.25rem;
+        color: $font-color-white-g;
+      }
+      @media screen and(max-width:500px) {
+        .title {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

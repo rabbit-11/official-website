@@ -1,0 +1,44 @@
+.anim_box {
+  @include size;
+  @include flex(column, center, unset);
+  border-radius: 0.1rem;
+  overflow: hidden;
+  .mask{
+    @include absolute(0,0,unset,unset);
+    @include size;
+    background-color: rgba(0,0,0,.3);
+  }
+  .anim_image {
+    @include size(100%, auto);
+    border: 1px solid #fff;
+    box-shadow: inset 0 0 5px #c1c1c1;
+    border-radius: 0.1rem;
+    display: block;
+    margin: 0 auto;
+    object-fit:cover;
+    transition: all 1s ease-in-out;
+    cursor: pointer;
+  }
+  .anim_image_top {
+    position: absolute;
+    transform: scale(0, 0);
+    opacity: 0;
+    filter: Alpha(opacity=0);
+  }
+}
+.image-animation {
+  .anim_image{
+    border: none;
+    box-shadow:0;
+  }
+  .anim_image_top {
+    opacity: 1;
+    filter: Alpha(opacity=100);
+    transform: scale(1, 1);
+    transform-origin: top right;
+  }
+  .anim_image_bottom {
+    transform: scale(0, 0);
+    transform-origin: bottom left;
+  }
+}

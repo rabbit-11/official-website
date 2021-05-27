@@ -1,0 +1,4 @@
+<div :class="['breadcumb',{'fix':breadcrumbFlag}]">
+    <Cascader :class="[{'core':pageFlag!='cases'}]" :data="menuList" :clearable="0" v-model="menu" trigger="hover"
+        @on-change="onChoose"></Cascader>
+</div>

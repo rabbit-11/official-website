@@ -1,0 +1,190 @@
+.case-section {
+  @include size;
+  .case-list {
+    width: 100%;
+    @include flex(row, flex-start, center);
+    padding-left: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+    .case-item {
+      @include flex(column, center, center);
+      padding: 0.3rem 0.5rem;
+      margin: 0 0.2rem;
+      cursor: pointer;
+      animation: caseshow 1.3s;
+      .case-value {
+        @include size(1.5rem, 1.5rem);
+        @include font(0.3rem, bold);
+        @include flex(column, center, center);
+        border-radius: 50%;
+        border: 1px solid #e4e1e1;
+        margin-bottom: 0.2rem;
+        .pic {
+          @include size(1.3rem, 1.3rem);
+          border-radius: 50%;
+        }
+      }
+      .case-name {
+        font-size: 0.18rem;
+        max-width: 3rem;
+        text-align: center;
+        @include ellipsis;
+      }
+    }
+    @keyframes caseshow {
+      0% {
+        margin: 0 1rem;
+        opacity: 0;
+      }
+      100% {
+        margin: 0 0.2rem;
+        opacity: 1;
+      }
+    }
+    @media screen and(max-width:500px) {
+      .case-item {
+        animation: none;
+      }
+    }
+    .case-item:hover {
+      font-weight: 600;
+      color: #d20000;
+      .case-value {
+        box-shadow: 0 0 4px 3px #ded7d7;
+      }
+    }
+  }
+  .introduction {
+    @include size(100%, auto);
+    max-height: 8rem;
+    overflow: hidden;
+    font-size: 0.34rem;
+    position: relative;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1rem;
+    .introduction-content {
+      @include size(100%, 100%);
+      @include absolute(0, 0, unset, unset);
+      @include flex(column, center, center);
+      padding: 0;
+      background-color: rgba(0, 0, 0, 0.3);
+      .introduction-word {
+        font-size: 0.7rem;
+        width: 70%;
+      }
+      .sfont {
+        font-size: 0.5rem;
+      }
+      @media screen and(max-width:500px) {
+        .introduction-word {
+          font-size: 14px;
+          width: 80%;
+        }
+      }
+    }
+    .introduction-content:hover {
+      .introduction-word {
+        animation: bottomshow 1s;
+      }
+    }
+    .introductionPic {
+      @include size(100%, auto);
+    }
+    .picshow {
+      animation: clipcercleIn 1s;
+    }
+    @keyframes clipcercleIn {
+      0% {
+        clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+      }
+      100% {
+        clip-path: polygon(50% -50%, 150% 50%, 50% 150%, -50% 50%);
+      }
+    }
+  }
+  @media screen and(max-width:500px) {
+    .case-list {
+      padding: 0.5rem 0 0;
+      .case-item {
+        margin: 0;
+        .case-value {
+          @include size(50px, 50px);
+          line-height: 2rem;
+          .pic {
+            @include size(40px, 40px);
+          }
+        }
+        .case-name {
+          font-size: 13px;
+          width: 55px;
+        }
+      }
+    }
+    .introduction {
+      margin-top: 0.8rem;
+    }
+  }
+  @keyframes bottomshow {
+    0% {
+      opacity: 0;
+      margin-top: 0.8rem;
+    }
+    100% {
+      opacity: 1;
+      margin-top: 0;
+    }
+  }
+  .detail {
+    height: 100%;
+    @include flex(row, center, center);
+    .detail-left,
+    .detail-right {
+      height: 100%;
+      width: 40%;
+      padding: 0 0 1rem 1%;
+      @include flex(column, center, center);
+      .caseName {
+        @include font(0.3rem, bold);
+        width: 100%;
+        padding-left: 8%;
+        margin-bottom: 0.1rem;
+      }
+      .discription {
+        font-size: 0.22rem;
+        padding: 0 20% 0 8%;
+        max-height: 100%;
+        line-height: 180%;
+      }
+      @media screen and(min-width:1367px) {
+        .discription {
+          font-size: 0.2rem;
+        }
+      }
+      @media screen and(max-width:500px) {
+        .discription {
+          overflow: scroll;
+          padding: 0;
+          font-size: 13px;
+        }
+        .caseName {
+          font-size: 14px;
+        }
+      }
+      .datail-pic {
+        @include size(100%, auto);
+        max-height: 5rem;
+        object-fit: cover;
+      }
+    }
+  }
+  .ivu-carousel {
+    margin-bottom: 1rem;
+    .ivu-carousel-dots-inside {
+      bottom: 0.3rem;
+      li {
+        margin: 0 0.05rem;
+      }
+    }
+  }
+}

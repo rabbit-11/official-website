@@ -1,0 +1,31 @@
+<div @mouseenter="enter=true" @mouseleave="enter=false"
+    :class="['header',{'enter':enter},{'headerIndex':headerIndexFlag}]">
+    <div @click="goHome('/index.html')" class="logo">
+        <div class="logo-img"></div>
+        <div class="logo-name"><span>知识库</span></div>
+    </div>
+    <div class="links">
+        <div :class="['link',{'link-active':menu.name===activeName}]" v-for="(menu,index) in menuList" :key="menu.name"
+            @click.stop="toPage(menu)">
+            {{menu.title}}
+            <div class="check-bg"></div>
+        </div>
+    </div>
+    <div class="handle-btn">
+        <i-dropdown @on-click="onDropdownClick">
+            <a href="javascript:void(0)">
+                发布
+                <Icon type="ios-arrow-down"></Icon>
+            </a>
+            <i-dropdown-menu slot="list">
+                <i-dropdown-item  name="publish">发布文章</i-dropdown-item>
+            </i-dropdown-menu>
+        </i-dropdown>
+    </div>
+    <div class="login-btn" v-if="!$isLogin" @click="$openLoginModal">登录</div>
+
+    <u-user-settings></u-user-settings>
+
+    <u-login-modal></u-login-modal>
+
+</div>

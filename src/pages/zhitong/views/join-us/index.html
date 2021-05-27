@@ -1,0 +1,24 @@
+<div class="join">
+    <u-banner :data="bannerData"></u-banner>
+
+    <u-subheader :data="data.environment"> </u-subheader>
+    <div ref="environment">
+        <u-carousels :data="data.environment.desc"></u-carousels>
+    </div>
+
+    <u-subheader :data="data.activity"> </u-subheader>
+    <div ref="activity">
+        <u-activity :data="data.activity.desc"> </u-activity>
+    </div>
+
+    <u-subheader :data="data.welfare"> </u-subheader>
+    <div ref="welfare">
+        <u-welfare :data="data.welfare.desc"> </u-welfare>
+    </div>
+
+    <u-subheader :data="data.training"> </u-subheader>
+    <div ref="training">
+        <u-training :data="data.training.desc"> </u-training>
+    </div>
+
+</div>

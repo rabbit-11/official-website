@@ -1,0 +1,56 @@
+
+
+  .login-model {
+
+    .handle-btn {
+      @include font(0.18rem, bold);
+
+      a {
+        color: #333;
+      }
+    }
+
+    .handle-btn:hover {
+      a {
+        color: #ec6149;
+      }
+    }
+
+
+    .login-btn {
+      @include absolute(unset, 6%, unset, unset);
+      cursor: pointer;
+    }
+
+    .ivu-form {
+      @include flex(column, center, center);
+
+      .ivu-input-wrapper {
+        width: 3rem;
+      }
+
+      .handle-btn {
+        @include flex(unset, center, center);
+        margin-bottom: 0.24rem;
+
+        .ivu-btn {
+          margin: 0 0.1rem;
+          border: 1px solid #ec6149;
+        }
+
+        .ivu-btn:first-child {
+          background-color: #fff;
+          color: #ec6149;
+        }
+
+        .ivu-btn:last-child {
+          background-color: #ec6149;
+          color: #fff;
+        }
+      }
+    }
+
+    .ivu-modal-header p {
+      padding-left: 0.16rem;
+    }
+  }

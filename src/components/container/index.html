@@ -1,0 +1,12 @@
+<div class="container" :class="theme">
+    <p-header></p-header>
+    <div class="single-page-con">
+        <div class="single-page">
+            <transition name="fade" mode="out-in">
+                <router-view></router-view>
+            </transition>
+        </div>
+    </div>
+        <div :class="{animate: index}"></div>
+    </div>
+</div>

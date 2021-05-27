@@ -1,0 +1,74 @@
+.index-main {
+  position: relative;
+  margin-top: 0.5rem;
+  background-color: #fff5f5;
+  padding: 1rem 0 0.4rem;
+  .around {
+    @include flex(row, space-between, center);
+    @include size(100%, 5.4rem);
+    position: absolute;
+    perspective: 200;
+    -webkit-perspective: 200;
+    .pre {
+      @include size(5rem, 5.4rem);
+      transform: rotateY(10deg);
+      overflow: hidden;
+      .pre-pic {
+        @include size;
+        min-height: 5rem;
+      }
+    }
+    .next {
+      @include size(5rem, 5.4rem);
+      transform: rotateY(-10deg);
+      overflow: hidden;
+      .next-pic {
+        min-height: 5rem;
+        @include size;
+      }
+    }
+    .mask {
+      @include size;
+      @include absolute(0, unset, unset, 0);
+      // background-color: rgba(0, 0, 0, 0.4);
+      color: #fff;
+      text-align: center;
+    }
+  }
+  .slider {
+    @include size(9rem, 5.4rem);
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    img {
+      position: absolute;
+      @include size(9rem, 5.4rem);
+      border-radius: 3px;
+      z-index: 1;
+    }
+  }
+  .pointer {
+    @include flex(row, center, center);
+    font-size: 20px;
+    margin-top: 0.2rem;
+    color: gray;
+    li {
+      margin-right: 2px;
+      cursor: pointer;
+    }
+    .activeColor {
+      color: orange;
+    }
+  }
+  .fadein {
+    animation: fadein 1s;
+  }
+  @keyframes fadein {
+    0% {
+      margin-left: 3rem;
+    }
+    100% {
+      margin-left: 1;
+    }
+  }
+}

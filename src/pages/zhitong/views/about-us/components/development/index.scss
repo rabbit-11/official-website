@@ -1,0 +1,50 @@
+.development {
+  @include size(100%, 5rem);
+  @include flex(column, flex-start, center);
+  @include bg-img("~@/assets/images/zhitong/about/development.png");
+  font-size: 0.2rem;
+  text-align: center;
+  position: relative;
+  .time {
+    @include font(0.32rem, bold);
+    margin: 0.7rem 0 0.3rem;
+    color: #d20000;
+    letter-spacing: 1px;
+  }
+  .description {
+    width: 70%;
+    line-height: 150%;
+  }
+  .time-line {
+    @include absolute(unset,5%,1rem,unset);
+    @include size(90%, auto);
+    @include flex(row, space-between, flex-start);
+    @include bg-img("~@/assets/images/zhitong/about/line.png");
+    background-size: 98% auto;
+    background-position-y: .16rem;
+    .time-dot {
+      @include flex(column, flex-start, center);
+      .icon {
+        @include size(0.4rem, 0.4rem);
+        @include bg-img("~@/assets/images/zhitong/about/dot.png");
+        margin-bottom: 0.2rem;
+        cursor: pointer;
+      }
+      .active-time {
+        @include bg-img("~@/assets/images/zhitong/about/dot-active.png");
+      }
+    }
+  }
+  @media screen and(max-width:500px) {
+    .time{
+      margin: .3rem 0;
+    }
+    .description{
+      width: 90%;
+      font-size: 13px;
+    }
+    .time-line{
+      bottom: .1rem;
+    }
+  }
+}

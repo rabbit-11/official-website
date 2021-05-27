@@ -1,0 +1,6 @@
+<div v-if="list.length>0" class="feature-list">
+    <div v-for="(item,index) in list" class="feature-item">
+        <img class="pic" :src="item.value" />
+        <div class="feature-name">{{item.name}}</div>
+    </div>
+</div>

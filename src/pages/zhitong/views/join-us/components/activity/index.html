@@ -1,0 +1,25 @@
+<div>
+    <div class="activity">
+        <div class="activity-shadow"></div>
+        <div class="activity-background">
+            <img :src="data[currentIndex]" alt="暂无图片">
+        </div>
+        <div class="activity-show">
+            <div class="activity-show-current" :class="moveFlag?moveToRight:fade">
+                <img :src="data[currentIndex]" alt="暂无图片">
+            </div>
+            <div class="activity-show-next" :class="moveFlag?moveToLeft:fade">
+                <img :src="data[(currentIndex+1)%4]" alt="暂无图片">
+            </div>
+            <div class="activity-show-doc">
+                <ul class="doc">
+                    <li v-for="(doc,index) in data" :key="index"></li>
+                    <li></li>
+                </ul>
+                <div class="arrow" @click="onArrowClick">
+                    <i-icon type="ios-arrow-forward" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
